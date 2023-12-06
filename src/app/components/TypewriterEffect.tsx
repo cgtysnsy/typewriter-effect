@@ -5,18 +5,19 @@ import { text } from 'stream/consumers';
 type TypewriterEffectProps = {
     sampleText: string;
     start: boolean
+    displayedText?: string;
 }
 
-const TypewriterEffect: React.FC<TypewriterEffectProps> = ({ sampleText, start, displayedText,setDisplayedText }) => {
-   const [currentIndex,setCurrentIndex] = useState<number>(0)
-
+const TypewriterEffect: React.FC<TypewriterEffectProps> = ({ sampleText, start, displayedText,setDisplayedText,currentIndex,setCurrentIndex }) => {
+  
+console.log(currentIndex,"typepage")
         useEffect(() => {
             let interval: NodeJS.Timeout | number;
             
             if (sampleText && sampleText.length > 0 && currentIndex< sampleText.length && start == true) {
              
                 interval = setInterval(() => {
-                    setDisplayedText((prev) => prev + sampleText[currentIndex]);
+                    setDisplayedText((prev:any) => prev + sampleText[currentIndex]);
                     setCurrentIndex((prevIndex) => prevIndex + 1)
                  }, 10)
                   
