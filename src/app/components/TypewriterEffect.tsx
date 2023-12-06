@@ -22,7 +22,7 @@ const TypewriterEffect: React.FC<TypewriterEffectProps> = ({ sampleText, start, 
                   
                     return () => clearInterval(interval);
                 }
-},[currentIndex,typingDelay,start])
+},[currentIndex,start])
 
   return (
       <div>
